@@ -1,5 +1,5 @@
 {% set name = "des-desmeds" %}
-{% set version = "0.9.15" %}
+{% set version = "0.9.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/esheldon/desmeds/archive/v{{ version }}.tar.gz
-  sha256: ba1de05de63c42713f35fc253b06602c3f73ebc9758239def511ec3ee11c3052
+  sha256: 367604c3ff255e559ff9f6195cd0c3a154098995b77fa83ac445ebbdba4605d4
 
 build:
   # the setup.py uses the `scripts` argument to distutils so this recipe
   # cannot be noarch: python
-  number: 1
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
