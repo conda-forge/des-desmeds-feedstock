@@ -1,11 +1,11 @@
-About des-desmeds
-=================
+About des-desmeds-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/des-desmeds-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/esheldon/desmeds
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/des-desmeds-feedstock/blob/main/LICENSE.txt)
 
 Summary: DES-specific MEDS production code
 
@@ -217,7 +217,4 @@ Feedstock Maintainers
 
 * [@beckermr](https://github.com/beckermr/)
 * [@esheldon](https://github.com/esheldon/)
-
-
-<!-- dummy commit to enable rerendering -->
 
