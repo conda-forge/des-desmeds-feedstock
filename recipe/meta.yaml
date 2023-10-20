@@ -1,5 +1,5 @@
 {% set name = "des-desmeds" %}
-{% set version = "0.9.17" %}
+{% set version = "0.9.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/esheldon/desmeds/archive/v{{ version }}.tar.gz
-  sha256: 4c8cb570fd28bdb790a028652ae2b2469e771093827cbb841740aa74fa8085e7
+  sha256: 735db5516a813cc688d36c9f32404b7520540263217fa2d130ceb1a83e562ed5
 
 build:
   # the setup.py uses the `scripts` argument to distutils so this recipe
