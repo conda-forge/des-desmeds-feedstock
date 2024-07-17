@@ -1,6 +1,14 @@
 {% set name = "des-desmeds" %}
 {% set version = "0.9.18" %}
 
+{% set piff = piff or 'cf' %}
+
+{% set build = 2 %}
+{% if piff == 'cf' %}
+# prioritize piff package
+{% set build = build + 100 %}
+{% endif %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -12,8 +20,12 @@ source:
 build:
   # the setup.py uses the `scripts` argument to distutils so this recipe
   # cannot be noarch: python
-  number: 1
-  skip: true  # [win]
+  number: {{ build }}
+  string: "{{ piff }}_h{{ PKG_HASH }}_{{ build }}"
+  # weigh down eastlake version with track features
+  track_features:                # [piff == "eastlake"]
+    - des_desmeds_piff_eastlake  # [piff == "eastlake"]
+  skip: true  # [win or py >= 312]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -32,9 +44,13 @@ requirements:
     - pyyaml
     - numpy
     - psfex
-    - piff
+    - piff  # [piff == "cf"]
+    - galsim
     - pixmappy
     - cfitsio
+  # use run constrained to avoid a circular dependency
+  run_constrained:        # [piff == "eastlake"]
+    - des-eastlake >=0.9  # [piff == "eastlake"]
 
 test:
   imports:
