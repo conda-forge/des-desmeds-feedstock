@@ -45,6 +45,7 @@ requirements:
     - numpy
     - psfex
     - piff  # [piff == "cf"]
+    - galsim
     - pixmappy
     - cfitsio
   # use run constrained to avoid a circular dependency
